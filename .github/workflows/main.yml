@@ -1,7 +1,7 @@
 name: VPN Check and Update
 on:
   schedule:
-    - cron: '0 */1 * * *' # Запуск каждый час
+    - cron: '0 */1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -19,13 +19,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Download Xray Checker
+      - name: Install Official Xray
         run: |
-          # Скачиваем готовый инструмент для глубокой проверки Xray
-          curl -L https://github.com/v2fly/xray-core/releases/latest/download/Xray-linux-64.zip -o xray.zip # Это пример, обычно нужен спец. чекер
-          # Для простоты скачаем легковесный чекер (имитация)
-          wget https://github.com/Paimonko/xray-checker/releases/download/v1.0.0/xray-checker-linux-amd64 -O xray-checker
-          chmod +x xray-checker
+          curl -L https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip -o xray.zip
+          unzip xray.zip xray
+          chmod +x xray
+          # Проверим, что xray работает
+          ./xray version
 
       - name: Run Check Script
         run: python check.py
