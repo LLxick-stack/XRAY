@@ -1,4 +1,4 @@
-vless://8d5ebe3f-d0c5-45f2-9dde-21ee29fc0ee6@8.6.112.0:443?encryption=none&security=tls&sni=fin.moell13.org&fp=chrome&type=xhttp&mode=auto&packetEncoding=xudp#🇩🇪 [WI-FI] Великобритания
+vless://8d5ebe3f-d0c5-45f2-9dde-21ee29fc0ee6@8.6.112.0:443?encryption=none&security=tls&sni=fin.moell13.org&fp=chrome&type=xhttp&mode=auto&packetEncoding=xudp#🇩🇪 [WI-FI] Великобритани
 vless://8d5ebe3f-d0c5-45f2-9dde-21ee29fc0ee6@8.6.112.0:443?encryption=none&type=xhttp&mode=auto&path=%2F&security=tls&sni=fin.moell13.org#🇩🇪 [WI-FI] Нидерланды
 vless://9cf7e4ab-0da9-4213-d376-8f9d91668daf@8.6.112.0:443?encryption=none&security=tls&sni=hajimamad.ladyy-collection.ir&type=xhttp&host=hajimamad.ladyy-collection.ir&path=/&mode=auto&packetEncoding=xudp#🇬🇧 [WI-FI] Франция
 vless://4bc7d558-1943-44de-bd82-56920bc9383e@freede.spectrum.vu:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=&pbk=F4Cbv0swJucaDwQdOibmLHhynexUdaVf8CFvTFe81mc&sid=8b4c2d5a1e3f&sni=freede.spectrum.vu&path=&host=#🇫🇷 [WI-FI] Великобритания
