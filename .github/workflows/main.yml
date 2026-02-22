@@ -14,32 +14,39 @@ jobs:
 
       - name: Install Xray Checker
         run: |
-          # Используем команду из твоей инструкции для Linux amd64
+          # Скачиваем чекер по инструкции из репозитория kutovoys/xray-checker
           curl -sL -o - $(curl -s https://api.github.com/repos/kutovoys/xray-checker/releases/latest | grep "browser_download_url.*linux-amd64.tar.gz" | cut -d'"' -f4) | tar -xz
           chmod +x xray-checker
 
       - name: Run Check
         run: |
-          # 1. Формируем заголовок для итогового файла
+          # 1. Запускаем локальный сервер для чекера
+          python3 -m http.server 8000 & 
+          sleep 2
+
+          # 2. Запускаем чекер и сохраняем полный лог в файл
+          ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
+          
+          # Выводим лог в консоль GitHub для отладки
+          cat full_log.txt
+
+          # 3. Подготовка итогового файла
           echo "#profile-title: LLxickVPN" > results.txt
           echo "#profile-update-interval: 12" >> results.txt
+          echo "#subscription-userinfo: total=0; expire=17837459931" >> results.txt
           echo "" >> results.txt
-          
-          # 2. Запускаем чекер в режиме "одиночной проверки" (--run-once)
-          # Мы скармливаем ему локальный файл через file://
-          ./xray-checker --subscription-url="file://$GITHUB_WORKSPACE/check.txt" --run-once
-          
-          # 3. После работы чекер создаст отчет. 
-          # ВНИМАНИЕ: Нам нужно достать только живые ссылки. 
-          # Обычно такие чекеры выводят результат в консоль или создают файл.
-          # Если он просто выводит в консоль, мы перенаправим вывод:
-          ./xray-checker --subscription-url="file://$GITHUB_WORKSPACE/check.txt" --run-once > output.log
-          
-          # Очистка и нумерация (фильтруем только строки с vless://)
-          grep "vless://" output.log | while read -r line; do
-            n=$((n+1))
-            base=$(echo $line | cut -d'#' -f1)
-            echo "${base}#🇷🇺 [LTE] №$n" >> results.txt
+
+          # 4. Логика фильтрации:
+          # Ищем строки со словом Success, вырезаем имя прокси и ищем его в check.txt
+          grep "Success" full_log.txt | while read -r line; do
+            # Извлекаем имя прокси (текст между временем и символом '|')
+            # Пример из лога: 19:17:04 🇷🇺 [LTE] №1 | Success
+            proxy_name=$(echo "$line" | sed -E 's/.*[0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
+            
+            # Ищем оригинальную ссылку в check.txt по этому имени
+            if [ ! -z "$proxy_name" ]; then
+              grep "$proxy_name" check.txt >> results.txt || true
+            fi
           done
 
       - name: Push results
@@ -47,5 +54,5 @@ jobs:
           git config --global user.name "VPN-Bot"
           git config --global user.email "bot@github.com"
           git add results.txt
-          git commit -m "Update via Xray Checker Pro" || exit 0
+          git commit -m "Update: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
           git push
