@@ -1,0 +1,4 @@
+#profile-title: LLxickVPN
+#profile-update-interval: 12
+#subscription-userinfo: total=0; expire=17837459931
+
