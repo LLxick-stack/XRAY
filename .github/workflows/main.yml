@@ -1,7 +1,7 @@
 name: VPN Auto-Collector and Checker
 on:
   schedule:
-    - cron: '0 * * * *' # Запуск раз в час
+    - cron: '0 * * * *' # Запуск раз в час для экономии лимитов GitHub
   workflow_dispatch:
 
 jobs:
@@ -11,6 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install Dependencies
+        run: sudo apt-get install -y bc # Нужно для фильтрации по пингу
+
       - name: Install Xray Checker
         run: |
           curl -sL -o - $(curl -s https://api.github.com/repos/kutovoys/xray-checker/releases/latest | grep "browser_download_url.*linux-amd64.tar.gz" | cut -d'"' -f4) | tar -xz
@@ -18,8 +21,11 @@ jobs:
 
       - name: Collect Configs
         run: |
+          # Очищаем временные файлы
           > check.txt
-          # Источник BLACK (LTE)
+          > raw_links.txt
+          
+          # Сбор Источника 1 - BLACK (LTE)
           curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt > s1.txt
           n=1
           while read -r line; do
@@ -30,7 +36,7 @@ jobs:
             fi
           done < s1.txt
 
-          # Источник WHITE (WI-FI)
+          # Сбор Источника 2 - WHITE (WI-FI)
           curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt > s2.txt
           n=1
           while read -r line; do
@@ -43,37 +49,45 @@ jobs:
 
       - name: Run Check
         run: |
-          # Считаем сколько собрали
-          TOTAL=$(wc -l < check.txt)
-          echo "Собрано для проверки: $TOTAL"
+          # Считаем сколько реально ссылок
+          TOTAL=$(grep -c "vless://" check.txt || echo "0")
+          echo "Всего собрано: $TOTAL"
 
-          # Запуск локального сервера
+          # Запуск сервера
           python3 -m http.server 8000 & 
           sleep 3
 
-          # Запуск чекера (он проверит 500+ штук очень быстро за счет Go-движка)
+          # Запуск чекера с таймаутом 15 секунд
           ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
           
-          # Формируем заголовок results.txt
+          # Очищаем и создаем results.txt с нуля
           echo "#profile-title: LLxickVPN" > results.txt
           echo "#profile-update-interval: 1" >> results.txt
           echo "#subscription-userinfo: total=0; expire=17837459931" >> results.txt
           echo "" >> results.txt
 
-          # Фильтруем и сопоставляем рабочие ссылки
+          # Фильтрация рабочих с пингом менее 5 секунд
           grep "Success" full_log.txt | while read -r line; do
+            # Вырезаем значение задержки (например 1.25)
+            latency=$(echo "$line" | grep -oP 'Latency: \K[0-9.]+' | head -n 1)
+            # Вырезаем имя прокси
             proxy_name=$(echo "$line" | sed -E 's/^[0-9\/ :]* [0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
-            if [ ! -z "$proxy_name" ]; then
-              grep -F "$proxy_name" check.txt >> results.txt || true
+            
+            if [ ! -z "$latency" ] && [ ! -z "$proxy_name" ]; then
+                # Если пинг меньше 5.0 секунд — сохраняем
+                if (( $(echo "$latency < 5.0" | bc -l) )); then
+                    grep -F "$proxy_name" check.txt | head -n 1 >> results.txt || true
+                fi
             fi
           done
           
-          echo "ПРОВЕРКА ОКОНЧЕНА. Живых конфигов: $(grep -c 'vless://' results.txt)"
+          FINAL=$(grep -c "vless://" results.txt || echo "0")
+          echo "Финальный результат: $FINAL рабочих конфигов из $TOTAL"
 
       - name: Push results
         run: |
           git config --global user.name "VPN-Bot"
           git config --global user.email "bot@github.com"
           git add results.txt
-          git commit -m "Update: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
+          git commit -m "Auto-update: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
           git push
