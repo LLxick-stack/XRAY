@@ -14,38 +14,34 @@ jobs:
 
       - name: Install Xray Checker
         run: |
-          # Скачиваем чекер по инструкции из репозитория kutovoys/xray-checker
           curl -sL -o - $(curl -s https://api.github.com/repos/kutovoys/xray-checker/releases/latest | grep "browser_download_url.*linux-amd64.tar.gz" | cut -d'"' -f4) | tar -xz
           chmod +x xray-checker
 
       - name: Run Check
         run: |
-          # 1. Запускаем локальный сервер для чекера
+          # 1. Запуск сервера для чекера
           python3 -m http.server 8000 & 
           sleep 2
 
-          # 2. Запускаем чекер и сохраняем полный лог в файл
+          # 2. Запуск чекера
           ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
-          
-          # Выводим лог в консоль GitHub для отладки
           cat full_log.txt
 
-          # 3. Подготовка итогового файла
+          # 3. Создание заголовка
           echo "#profile-title: LLxickVPN" > results.txt
           echo "#profile-update-interval: 12" >> results.txt
           echo "#subscription-userinfo: total=0; expire=17837459931" >> results.txt
           echo "" >> results.txt
 
-          # 4. Логика фильтрации:
-          # Ищем строки со словом Success, вырезаем имя прокси и ищем его в check.txt
+          # 4. Исправленная логика фильтрации
+          # Мы берем только строки с "Success", вырезаем имя и ищем его как ФИКСИРОВАННУЮ строку (-F)
           grep "Success" full_log.txt | while read -r line; do
-            # Извлекаем имя прокси (текст между временем и символом '|')
-            # Пример из лога: 19:17:04 🇷🇺 [LTE] №1 | Success
-            proxy_name=$(echo "$line" | sed -E 's/.*[0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
+            # Очищаем строку, оставляя только часть между временем и символом |
+            proxy_name=$(echo "$line" | sed -E 's/^[0-9\/ :]* [0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
             
-            # Ищем оригинальную ссылку в check.txt по этому имени
             if [ ! -z "$proxy_name" ]; then
-              grep "$proxy_name" check.txt >> results.txt || true
+              # Используем -F чтобы [LTE] не считалось за ошибку
+              grep -F "$proxy_name" check.txt >> results.txt || true
             fi
           done
 
