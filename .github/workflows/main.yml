@@ -1,9 +1,8 @@
-name: VPN Checker Pro
+name: VPN Auto-Collector and Checker
 on:
-  workflow_dispatch:
-  push:
-    paths:
-      - 'check.txt'
+  schedule:
+    - cron: '0 */3 * * *' # Запуск каждые 3 часа
+  workflow_dispatch: # Возможность ручного запуска
 
 jobs:
   check:
@@ -17,6 +16,28 @@ jobs:
           curl -sL -o - $(curl -s https://api.github.com/repos/kutovoys/xray-checker/releases/latest | grep "browser_download_url.*linux-amd64.tar.gz" | cut -d'"' -f4) | tar -xz
           chmod +x xray-checker
 
+      - name: Collect Configs
+        run: |
+          # Создаем пустой check.txt
+          > check.txt
+          
+          # Скачиваем конфиги из внешних источников
+          # Источник 1 (Black List)
+          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt >> raw_links.txt
+          # Источник 2 (White List)
+          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt >> raw_links.txt
+          
+          # Очищаем от пустых строк и нумеруем их для чекера
+          n=1
+          while read -r line; do
+            if [[ $line == vless://* ]]; then
+              # Убираем старое имя после # и ставим свое
+              base=$(echo "$line" | cut -d'#' -f1)
+              echo "${base}#🇷🇺 [LTE] №$n" >> check.txt
+              n=$((n+1))
+            fi
+          done < raw_links.txt
+
       - name: Run Check
         run: |
           # 1. Запуск сервера для чекера
@@ -27,20 +48,16 @@ jobs:
           ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
           cat full_log.txt
 
-          # 3. Создание заголовка
+          # 3. Создание заголовка results.txt
           echo "#profile-title: LLxickVPN" > results.txt
           echo "#profile-update-interval: 12" >> results.txt
           echo "#subscription-userinfo: total=0; expire=17837459931" >> results.txt
           echo "" >> results.txt
 
-          # 4. Исправленная логика фильтрации
-          # Мы берем только строки с "Success", вырезаем имя и ищем его как ФИКСИРОВАННУЮ строку (-F)
+          # 4. Фильтрация только рабочих ссылок
           grep "Success" full_log.txt | while read -r line; do
-            # Очищаем строку, оставляя только часть между временем и символом |
             proxy_name=$(echo "$line" | sed -E 's/^[0-9\/ :]* [0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
-            
             if [ ! -z "$proxy_name" ]; then
-              # Используем -F чтобы [LTE] не считалось за ошибку
               grep -F "$proxy_name" check.txt >> results.txt || true
             fi
           done
@@ -50,5 +67,5 @@ jobs:
           git config --global user.name "VPN-Bot"
           git config --global user.email "bot@github.com"
           git add results.txt
-          git commit -m "Update: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
+          git commit -m "Auto-update: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
           git push
