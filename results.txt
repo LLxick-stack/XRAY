@@ -1,0 +1,3 @@
+#profile-title: LLxickVPN
+#profile-update-interval: 12
+
