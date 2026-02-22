@@ -1,8 +1,8 @@
 name: VPN Auto-Collector and Checker
 on:
   schedule:
-    - cron: '*/30 * * * *' # Запуск каждые 30 минут
-  workflow_dispatch: # Ручной запуск
+    - cron: '0 * * * *' # Запуск раз в час
+  workflow_dispatch:
 
 jobs:
   check:
@@ -19,8 +19,7 @@ jobs:
       - name: Collect Configs
         run: |
           > check.txt
-          
-          # Сбор Источника 1 - BLACK (пометка LTE)
+          # Источник BLACK (LTE)
           curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt > s1.txt
           n=1
           while read -r line; do
@@ -31,7 +30,7 @@ jobs:
             fi
           done < s1.txt
 
-          # Сбор Источника 2 - WHITE (пометка WI-FI)
+          # Источник WHITE (WI-FI)
           curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt > s2.txt
           n=1
           while read -r line; do
@@ -44,26 +43,37 @@ jobs:
 
       - name: Run Check
         run: |
-          python3 -m http.server 8000 & 
-          sleep 2
-          ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
+          # Считаем сколько собрали
+          TOTAL=$(wc -l < check.txt)
+          echo "Собрано для проверки: $TOTAL"
 
+          # Запуск локального сервера
+          python3 -m http.server 8000 & 
+          sleep 3
+
+          # Запуск чекера (он проверит 500+ штук очень быстро за счет Go-движка)
+          ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
+          
+          # Формируем заголовок results.txt
           echo "#profile-title: LLxickVPN" > results.txt
-          echo "#profile-update-interval: 12" >> results.txt
+          echo "#profile-update-interval: 1" >> results.txt
           echo "#subscription-userinfo: total=0; expire=17837459931" >> results.txt
           echo "" >> results.txt
 
+          # Фильтруем и сопоставляем рабочие ссылки
           grep "Success" full_log.txt | while read -r line; do
             proxy_name=$(echo "$line" | sed -E 's/^[0-9\/ :]* [0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
             if [ ! -z "$proxy_name" ]; then
               grep -F "$proxy_name" check.txt >> results.txt || true
             fi
           done
+          
+          echo "ПРОВЕРКА ОКОНЧЕНА. Живых конфигов: $(grep -c 'vless://' results.txt)"
 
       - name: Push results
         run: |
           git config --global user.name "VPN-Bot"
           git config --global user.email "bot@github.com"
           git add results.txt
-          git commit -m "Auto-update: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
+          git commit -m "Update: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
           git push
