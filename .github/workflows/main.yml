@@ -178,17 +178,16 @@ jobs:
             PERCENT=$(echo "scale=1; $FINAL * 100 / $TOTAL" | bc)
           else
             PERCENT="0"
-          fi
+            fi
 
-          MESSAGE="🔐 *LLxickVPN — Отчёт проверки*
-
-🕐 *Обновлено:* \`$UPD_DATE UTC\`
-📦 *Всего собрано:* \`$TOTAL\`
-✅ *Рабочих (<5s):* \`$FINAL\` ($PERCENT%)
-$TREND *Изменение:* \`$DELTA\` за 30 мин
-
-↩️ Обновление каждые 30 минут автоматически
-📢 @LLxickVPN"
+          LINE1="🔐 *LLxickVPN — Отчёт проверки*"
+          LINE2="🕐 *Обновлено:* \`$UPD_DATE UTC\`"
+          LINE3="📦 *Всего собрано:* \`$TOTAL\`"
+          LINE4="✅ *Рабочих (<5s):* \`$FINAL\` ($PERCENT%)"
+          LINE5="$TREND *Изменение:* \`$DELTA\` за 30 мин"
+          LINE6="↩️ Обновление каждые 30 минут автоматически"
+          LINE7="📢 @LLxickVPN"
+          MESSAGE=$(printf '%s\n\n%s\n%s\n%s\n%s\n\n%s\n%s' "$LINE1" "$LINE2" "$LINE3" "$LINE4" "$LINE5" "$LINE6" "$LINE7")
 
           curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendPhoto" \
             -F "chat_id=${TG_CHAT_ID}" \
