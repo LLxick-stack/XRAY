@@ -192,7 +192,7 @@ jobs:
           curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendPhoto" \
             -F "chat_id=${TG_CHAT_ID}" \
             -F "photo=@chart.png" \
-            -F "caption=${MESSAGE}" \
+            -F "caption=$MESSAGE" \
             -F "parse_mode=Markdown"
 
       - - name: Push results
