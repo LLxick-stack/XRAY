@@ -60,12 +60,11 @@ jobs:
           UPD_DATE=$(date -u +'%d.%m.%Y %H:%M')
           # Текст для announce в base64
           ANNOUNCE_TEXT="UPD: $UPD_DATE | обновление каждые 30 мин | тгк @LLxickVPN"
-          ANNOUNCE_B64=$(echo -n "$ANNOUNCE_TEXT" | base64 -w 0)
 
           echo "#profile-title: LLxickVPN" > results.txt
           echo "#support-url: https://t.me/LLxick2" >> results.txt
           echo "#profile-update-interval: 1" >> results.txt
-          echo "#announce: $ANNOUNCE_B64" >> results.txt
+          echo "#announce: $ANNOUNCE_TEXT" >> results.txt
           echo "" >> results.txt
 
           grep "Success" full_log.txt | while read -r line; do
