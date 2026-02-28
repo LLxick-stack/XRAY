@@ -195,7 +195,7 @@ jobs:
             -F "caption=$MESSAGE" \
             -F "parse_mode=Markdown"
 
-      - - name: Push results
+      - name: Push results
         run: |
           git config --global user.name "VPN-Bot"
           git config --global user.email "bot@github.com"
