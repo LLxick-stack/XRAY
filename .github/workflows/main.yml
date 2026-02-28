@@ -57,7 +57,7 @@ jobs:
           ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
 
           # Генерируем дату обновления
-          UPD_DATE=$(date -u +'%d.%m.%Y %H:%M')
+          UPD_DATE=$(TZ='Europe/Moscow' date +'%d.%m.%Y %H:%M')
           # Текст для announce в base64
           ANNOUNCE_TEXT="UPD: $UPD_DATE | обновление каждые 30 мин | тгк @LLxickVPN"
 
