@@ -26,35 +26,29 @@ jobs:
           > check.txt
           > raw_links.txt
 
-          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt > s1.txt
-          n=1
+          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt > s1.txt
           while read -r line; do
             if [[ $line == vless://* ]]; then
               base=$(echo "$line" | cut -d'#' -f1)
-              echo "${base}#[LTE] N$n" >> check.txt
-              n=$((n+1))
+              echo "${base}#[WI-FI]" >> check.txt
             fi
           done < s1.txt
 
-          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/WHITE-CIDR-RU-checked.txt > s3.txt
-          n=1
+          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt > s2.txt
           while read -r line; do
             if [[ $line == vless://* ]]; then
               base=$(echo "$line" | cut -d'#' -f1)
-              echo "${base}#[LTE] N$n" >> check.txt
-              n=$((n+1))
-            fi
-          done < s3.txt
-
-          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt > s2.txt
-          n=1
-          while read -r line; do
-            if [[ $line == vless://* ]]; then
-              base=$(echo "$line" | cut -d'#' -f1)
-              echo "${base}#[WI-FI] N$n" >> check.txt
-              n=$((n+1))
+              echo "${base}#[LTE]" >> check.txt
             fi
           done < s2.txt
+
+          curl -s https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/WHITE-CIDR-RU-checked.txt > s3.txt
+          while read -r line; do
+            if [[ $line == vless://* ]]; then
+              base=$(echo "$line" | cut -d'#' -f1)
+              echo "${base}#[LTE]" >> check.txt
+            fi
+          done < s3.txt
 
       - name: Run Check
         run: |
@@ -66,9 +60,7 @@ jobs:
 
           ./xray-checker --subscription-url="http://localhost:8000/check.txt" --run-once > full_log.txt 2>&1
 
-          # Генерируем дату обновления
           UPD_DATE=$(TZ='Europe/Moscow' date +'%d.%m.%Y %H:%M')
-          # Текст для announce в base64
           ANNOUNCE_TEXT="UPD: $UPD_DATE | обновление каждые 30 мин | тгк @LLxickVPN"
 
           echo "#profile-title: LLxickVPN" > results.txt
@@ -77,15 +69,31 @@ jobs:
           echo "#announce: $ANNOUNCE_TEXT" >> results.txt
           echo "" >> results.txt
 
+          > wifi.tmp
+          > lte.tmp
+
           grep "Success" full_log.txt | while read -r line; do
             latency=$(echo "$line" | grep -oP 'Latency: \K[0-9.]+' | head -n 1)
             proxy_name=$(echo "$line" | sed -E 's/^[0-9\/ :]* [0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
             if [ ! -z "$latency" ] && [ ! -z "$proxy_name" ]; then
-              if (( $(echo "$latency < 3.0" | bc -l) )); then
-                grep -F "$proxy_name" check.txt | head -n 1 >> results.txt || true
+              if (( $(echo "$latency < 2.0" | bc -l) )); then
+                config=$(grep -F "$proxy_name" check.txt | head -n 1)
+                if [ ! -z "$config" ]; then
+                  if echo "$config" | grep -q "\[WI-FI\]"; then
+                    echo "$latency $config" >> wifi.tmp
+                  else
+                    echo "$latency $config" >> lte.tmp
+                  fi
+                fi
               fi
             fi
           done
+
+          # 25 лучших WI-FI первыми, затем 25 лучших LTE
+          sort -n wifi.tmp | head -n 25 | sed 's/^[0-9.]* //' >> results.txt
+          sort -n lte.tmp  | head -n 25 | sed 's/^[0-9.]* //' >> results.txt
+
+          rm -f wifi.tmp lte.tmp
 
           FINAL=$(grep -c "vless://" results.txt || echo "0")
           echo "TOTAL=$TOTAL" >> $GITHUB_ENV
@@ -120,7 +128,6 @@ jobs:
               history = []
 
           history.append({"time": now, "total": total, "working": final})
-          # 48 точек = 24 часа при интервале 30 минут
           history = history[-48:]
 
           with open("history.json", "w") as f:
@@ -135,10 +142,9 @@ jobs:
           ax.set_facecolor('#16213e')
 
           ax.plot(times, totals, color='#4fc3f7', linewidth=2, marker='o', markersize=4, label='Всего конфигов')
-          ax.plot(times, workings, color='#81c784', linewidth=2, marker='o', markersize=4, label='Рабочих (<3s)')
+          ax.plot(times, workings, color='#81c784', linewidth=2, marker='o', markersize=4, label='Топ 50 (<2s)')
           ax.fill_between(times, workings, alpha=0.15, color='#81c784')
 
-          # Заголовок без эмодзи — они ломаются в matplotlib без спец. шрифта
           ax.set_title(f'LLxickVPN — Последние 24 часа | {upd_date} UTC', color='white', fontsize=13, pad=15)
           ax.set_xlabel('Время (UTC)', color='#aaaaaa')
           ax.set_ylabel('Количество', color='#aaaaaa')
@@ -187,12 +193,12 @@ jobs:
             PERCENT=$(echo "scale=1; $FINAL * 100 / $TOTAL" | bc)
           else
             PERCENT="0"
-            fi
+          fi
 
           LINE1="🔐 *LLxickVPN — Отчёт проверки*"
           LINE2="🕐 *Обновлено:* \`$UPD_DATE UTC\`"
           LINE3="📦 *Всего собрано:* \`$TOTAL\`"
-          LINE4="✅ *Рабочих (<3s):* \`$FINAL\` ($PERCENT%)"
+          LINE4="✅ *Топ 50 (<2s):* \`$FINAL\` ($PERCENT%)"
           LINE5="$TREND *Изменение:* \`$DELTA\` за 30 мин"
           LINE6="↩️ Обновление каждые 30 минут автоматически"
           LINE7="📢 @LLxickVPN"
