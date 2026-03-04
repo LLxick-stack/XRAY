@@ -94,8 +94,8 @@ jobs:
             proxy_name=$(echo "$line" | sed -E 's/^[0-9\/ :]* [0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
             if [ ! -z "$latency" ] && [ ! -z "$proxy_name" ]; then
               echo "$latency" >> all_latencies.tmp
-              # Только конфиги с латентностью < 100мс (0.1s)
-              if (( $(echo "$latency < 0.1" | bc -l) )); then
+              # Только конфиги с латентностью < 1.5s
+              if (( $(echo "$latency < 1.5" | bc -l) )); then
                 config=$(grep -F "$proxy_name" check.txt | head -n 1)
                 if [ ! -z "$config" ]; then
                   if echo "$config" | grep -q "\[WI-FI\]"; then
@@ -115,19 +115,25 @@ jobs:
           sort -n lte.tmp -o lte_sorted.tmp
           head -n 25 lte_sorted.tmp | sed 's/^[0-9.]* //; s/#\[LTE\] N[0-9]*$/#[LTE]/' >> results.txt
 
-          BEST_LATENCY=$(sort -n all_latencies.tmp 2>/dev/null | head -n 1 | tr -d '[:space:]')
-          AVG_LATENCY=$(awk '{sum+=$1; count++} END {if(count>0) printf "%.3f", sum/count; else print "0"}' all_latencies.tmp 2>/dev/null | tr -d '[:space:]')
+          BEST_LATENCY=$(sort -n all_latencies.tmp 2>/dev/null | head -n 1 | grep -oP '^[0-9.]+' | tr -d '[:space:]')
+          AVG_LATENCY=$(awk '{gsub(/[^0-9.]/, "", $1); sum+=$1; count++} END {if(count>0) printf "%.3f", sum/count; else print "0"}' all_latencies.tmp 2>/dev/null | tr -d '[:space:]')
           [[ -z "$BEST_LATENCY" || ! "$BEST_LATENCY" =~ ^[0-9.]+$ ]] && BEST_LATENCY="0"
           [[ -z "$AVG_LATENCY" || ! "$AVG_LATENCY" =~ ^[0-9.]+$ ]] && AVG_LATENCY="0"
 
           rm -f wifi.tmp lte.tmp wifi_sorted.tmp lte_sorted.tmp all_latencies.tmp
 
-          FINAL=$(grep -c "vless://" results.txt || echo "0")
-          echo "TOTAL=$TOTAL" >> $GITHUB_ENV
-          echo "FINAL=$FINAL" >> $GITHUB_ENV
-          echo "UPD_DATE=$UPD_DATE" >> $GITHUB_ENV
-          echo "BEST_LATENCY=$BEST_LATENCY" >> $GITHUB_ENV
-          echo "AVG_LATENCY=$AVG_LATENCY" >> $GITHUB_ENV
+          FINAL=$(grep -c "vless://" results.txt 2>/dev/null || echo "0")
+          FINAL=$(echo "$FINAL" | tr -d '[:space:]')
+          TOTAL=$(echo "$TOTAL" | tr -d '[:space:]')
+          [[ ! "$FINAL" =~ ^[0-9]+$ ]] && FINAL="0"
+          [[ ! "$TOTAL" =~ ^[0-9]+$ ]] && TOTAL="0"
+          UPD_DATE=$(echo "$UPD_DATE" | tr -d '\n\r')
+
+          printf 'TOTAL=%s\n' "$TOTAL" >> "$GITHUB_ENV"
+          printf 'FINAL=%s\n' "$FINAL" >> "$GITHUB_ENV"
+          printf 'UPD_DATE=%s\n' "$UPD_DATE" >> "$GITHUB_ENV"
+          printf 'BEST_LATENCY=%s\n' "$BEST_LATENCY" >> "$GITHUB_ENV"
+          printf 'AVG_LATENCY=%s\n' "$AVG_LATENCY" >> "$GITHUB_ENV"
           echo "Финальный результат: $FINAL конфигов | лучший: ${BEST_LATENCY}s | средний: ${AVG_LATENCY}s"
 
       - name: Load History & Build Chart
