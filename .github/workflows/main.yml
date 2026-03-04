@@ -63,15 +63,18 @@ jobs:
           python3 -m http.server 8000 &
           sleep 3
 
-          # Проверяем реальной загрузкой файла — отсеивает "замороженные" конфиги
+          # Строгая проверка: скачать весь 1MB за 8 секунд
+          # Если не уложился — конфиг выброшен
           ./xray-checker \
             --subscription-url="http://localhost:8000/check.txt" \
             --proxy-check-method=download \
             --proxy-download-url="http://speedtest.tele2.net/1MB.zip" \
-            --proxy-download-min-size=51200 \
-            --proxy-download-timeout=15 \
-            --proxy-timeout=10 \
+            --proxy-download-min-size=1048576 \
+            --proxy-download-timeout=8 \
+            --proxy-timeout=5 \
             --run-once > full_log.txt 2>&1
+
+          kill %1 2>/dev/null || true
 
           UPD_DATE=$(TZ='Europe/Moscow' date +'%d.%m.%Y %H:%M')
           ANNOUNCE_TEXT="UPD: $UPD_DATE | обновление каждые 30 мин | тгк @LLxickVPN"
@@ -91,19 +94,18 @@ jobs:
             proxy_name=$(echo "$line" | sed -E 's/^[0-9\/ :]* [0-9]{2}:[0-9]{2}:[0-9]{2} (.*) \| Success.*/\1/' | xargs)
             if [ ! -z "$latency" ] && [ ! -z "$proxy_name" ]; then
               echo "$latency" >> all_latencies.tmp
-              if (( $(echo "$latency < 2.0" | bc -l) )); then
-                config=$(grep -F "$proxy_name" check.txt | head -n 1)
-                if [ ! -z "$config" ]; then
-                  if echo "$config" | grep -q "\[WI-FI\]"; then
-                    echo "$latency $config" >> wifi.tmp
-                  else
-                    echo "$latency $config" >> lte.tmp
-                  fi
+              config=$(grep -F "$proxy_name" check.txt | head -n 1)
+              if [ ! -z "$config" ]; then
+                if echo "$config" | grep -q "\[WI-FI\]"; then
+                  echo "$latency $config" >> wifi.tmp
+                else
+                  echo "$latency $config" >> lte.tmp
                 fi
               fi
             fi
           done
 
+          # 25 лучших WI-FI по латентности первыми, затем 25 лучших LTE
           sort -n wifi.tmp -o wifi_sorted.tmp
           head -n 25 wifi_sorted.tmp | sed 's/^[0-9.]* //; s/#\[WI-FI\] N[0-9]*$/#[WI-FI]/' >> results.txt
 
@@ -194,7 +196,7 @@ jobs:
 
           # --- График 2: Количество рабочих конфигов ---
           ax2.set_facecolor('#16213e')
-          ax2.plot(times, workings, color='#4fc3f7', linewidth=2, marker='o', markersize=4, label='Топ 50 конфигов (<2s)')
+          ax2.plot(times, workings, color='#4fc3f7', linewidth=2, marker='o', markersize=4, label='Топ 50 конфигов')
           ax2.fill_between(times, workings, alpha=0.15, color='#4fc3f7')
           ax2.set_title('Количество конфигов в подписке', color='white', fontsize=12, pad=10)
           ax2.set_xlabel('Время (UTC)', color='#aaaaaa')
