@@ -1,15 +1,9 @@
 #profile-title: LLxickVPN
 #support-url: https://t.me/LLxick2
 #profile-update-interval: 1
-#announce: UPD: 06.03.2026 06:40 | обновление каждые 30 мин | тгк @LLxickVPN
+#announce: UPD: 06.03.2026 08:06 | обновление каждые 30 мин | тгк @LLxickVPN
 
+vless://Telegram-join%20%3D%20%40digi_config@185.171.202.30:33514?mode=auto&path=/&security=reality&encryption=none&pbk=umtoktgt8fKZ76DQbtut49eGGrfGZ7231IdblIvCPmQ&host=mikrotik.com&fp=chrome&spx=/&type=xhttp&sni=yahoo.com&sid=6f8de2cd56eb8ce9#[WI-FI]
 vless://c99cf4f8-1558-11f1-8cad-c3845d39d2de@us2.maxservice.life:443?type=xhttp&security=reality&encryption=none&fp=chrome&pbk=nymM_6TGt6ikGTSP7zc5z1NIY56VeBN6MmoatPXRBlI&sid=e5f6a7b8c9d0e1f2&sni=us2.maxservice.life&mode=auto#[WI-FI]
-vless://02e5b70c-163c-11f1-8cad-c3845d39d2de@us2.maxservice.life:443?type=xhttp&security=reality&fp=chrome&pbk=nymM_6TGt6ikGTSP7zc5z1NIY56VeBN6MmoatPXRBlI&sid=e5f6a7b8c9d0e1f2&sni=us2.maxservice.life&path=&host=&mode=auto#[WI-FI]
-vless://9a7447f6-156e-11f1-8cad-c3845d39d2de@us2.maxservice.life:443?type=xhttp&security=reality&fp=chrome&pbk=nymM_6TGt6ikGTSP7zc5z1NIY56VeBN6MmoatPXRBlI&sid=e5f6a7b8c9d0e1f2&sni=us2.maxservice.life&path=&host=&mode=auto#[WI-FI]
-vless://f4061ece-155b-11f1-8cad-c3845d39d2de@us2.maxservice.life:443?type=xhttp&security=reality&encryption=none&fp=chrome&pbk=nymM_6TGt6ikGTSP7zc5z1NIY56VeBN6MmoatPXRBlI&sid=e5f6a7b8c9d0e1f2&sni=us2.maxservice.life&mode=auto#[WI-FI]
-vless://c99cf4f8-1558-11f1-8cad-c3845d39d2de@us2.maxservice.life:443?type=xhttp&security=reality&fp=chrome&pbk=nymM_6TGt6ikGTSP7zc5z1NIY56VeBN6MmoatPXRBlI&sid=e5f6a7b8c9d0e1f2&sni=us2.maxservice.life&path=&host=&mode=auto#[WI-FI]
-vless://d2efa18a-9e8a-3057-91fe-90c8e620e49f@104.18.185.26:443?encryption=none&type=ws&security=tls&path=%2Fdb10242a4797a252&host=s6.oboob.cn&fp=chrome&sni=s6.oboob.cn&alpn=h3%2Ch2#[LTE]
-vless://7da8c48a-464c-4761-8ed2-091796b7db12@zapret.vpn-club-service.ru:443?type=tcp&security=reality&encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=dio0MJWgM9KngVLdKXRdEodFBiYd9bJI-b3bzopZhjI&sid=5FA44664f6a566d3&sni=ads.x5.ru#[LTE]
-vless://d2efa18a-9e8a-3057-91fe-90c8e620e49f@s1.db-link.in:443?&security=tls&fp=chrome&alpn=h3,h2&sni=s6.oboob.cn&type=ws&headerType=none&host=s6.oboob.cn&path=%2Fdb10242a4797a252#[LTE]
-vless://d2efa18a-9e8a-3057-91fe-90c8e620e49f@s1.db-link.in:443?&security=tls&fp=chrome&alpn=h3,h2&sni=s6.oboob.cn&type=ws&headerType=none&host=s6.oboob.cn&path=%2Fdb10242a4797a252#[LTE]
-vless://0509acee-63e3-4364-95cc-21c601f059be@5.188.88.149:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=booking.com&fp=chrome&security=reality&pbk=6r6uq4tZym5wRhJ5uti-h-UvN6uatQodMcG8rBU79Q4&sid=#[LTE]
+vless://26524cce-d514-4014-a426-365fb266a14d@104.249.40.219:443?&security=tls&fp=random&sni=k7ryegiaeu.chinam.eu.org&type=ws&headerType=none&host=k7ryegiaeu.chinam.eu.org&path=%2Fdanfeng#[WI-FI]
+vless://Telegram-join%20%3D%20%40digi_config@185.171.202.30:33514?mode=auto&path=/?ed=2095@digi_config@digi_config@digi_config@digi_config@digi_config@digi_config@digi_config@digi_config@digi_config@digi_config@digi_config&security=reality&encryption=none&pbk=umtoktgt8fKZ76DQbtut49eGGrfGZ7231IdblIvCPmQ&host=mikrotik.com&fp=chrome&spx=/&type=xhttp&sni=yahoo.com&sid=6f8de2cd56eb8ce9#[WI-FI]
