@@ -1,12 +1,5 @@
 [
   {
-    "time": "2026-03-05T13:57:12Z",
-    "total": 307,
-    "working": 17,
-    "best_latency": 1.009512042,
-    "avg_latency": 1.147
-  },
-  {
     "time": "2026-03-05T14:43:06Z",
     "total": 307,
     "working": 17,
@@ -334,5 +327,12 @@
     "working": 37,
     "best_latency": 1.001542544,
     "avg_latency": 1.143
+  },
+  {
+    "time": "2026-03-07T09:49:25Z",
+    "total": 805,
+    "working": 29,
+    "best_latency": 1.000111974,
+    "avg_latency": 1.17
   }
 ]
