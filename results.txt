@@ -1,24 +1,21 @@
 #profile-title: LLxickVPN
 #support-url: https://t.me/LLxick2
 #profile-update-interval: 1
-#announce: UPD: 14.03.2026 11:26 | обновление каждые 30 мин | тгк @LLxickVPN
+#announce: UPD: 14.03.2026 11:59 | обновление каждые 30 мин | тгк @LLxickVPN
 
 vless://15004ce4-caab-43fa-bde4-829e6f0e26b5@diniru.xstream.lk:443?security=tls&amp;alpn=http/1.1&amp;encryption=none&amp;headerType=none&amp;fp=chrome&amp;type=tcp#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@66.92.20.111:443?type=ws&security=tls&encryption=none&sni=zgtwylnhh.cc.cd&path=Telegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&host=zgtwylnhh.cc.cd#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?type=ws&security=tls&encryption=none&sni=ylnhh.cc.cd&path=/Telegram+@WangCai2&host=ylnhh.cc.cd#[WI-FI]
 vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?type=ws&encryption=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&headerType=none&quicSecurity=none&serviceName=&security=tls&fp=chrome&insecure=1&sni=ylnhh.cc.cd#[WI-FI]
 vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@66.92.20.111:443?&security=tls&fp=chrome&sni=zgtwylnhh.cc.cd&type=ws&headerType=none&host=zgtwylnhh.cc.cd&path=Telegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@66.92.20.111:443?type=ws&security=tls&encryption=none&sni=zgtwylnhh.cc.cd&path=Telegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&host=zgtwylnhh.cc.cd#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2#[WI-FI]
+vless://1b8650d4-13b9-01f4-a9f7-670df3afa6b6@109.120.189.133:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
+vless://1b8650d4-13b9-03e8-a9f7-670df3afa6b6@109.120.190.56:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
 vless://1b8650d4-13b9-0bb8-a9f7-670df3afa6b6@5.188.141.239:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
-vless://ab9a202a-d0b2-07d0-95e5-d6f373a1ab35@109.120.191.5:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
-vless://50f2b35d-ce9d-4b3d-88c1-29e385910e84@84.201.133.58:8447?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=www.vk.com&pbk=T1tALmySOtH_eYNiFY3rRn4p5A6mEBCzdMHnRV7ehRQ&spx=%2F#[LTE]
-vless://ab9a202a-d0b2-01f4-95e5-d6f373a1ab35@146.185.240.139:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
-vless://216e28b3-5950-4f89-916c-62bc50e092de@51.250.98.66:8083?encryption=none&type=tcp&security=reality&fp=chrome&sni=max.ru&pbk=Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw&sid=7dbf7d3233971d5c#[LTE]
-vless://ab9a202a-d0b2-03e8-95e5-d6f373a1ab35@109.120.188.115:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
-vless://216e28b3-5950-4f89-916c-62bc50e092de@51.250.98.66:8081?encryption=none&type=tcp&security=reality&fp=chrome&sni=max.ru&pbk=Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw&sid=7dbf7d3233971d5c#[LTE]
-vless://da3f1418-2fbd-4597-b533-d0decacbb17e@46.235.189.248:443/?type=ws&encryption=none&flow=&host=s49079.cdn.ngenix.net&path=%2Fstream%2Flive&security=tls&sni=s49079.cdn.ngenix.net&fp=qq#[LTE]
-vless://da3f1418-2fbd-4597-b533-d0decacbb17e@37.220.163.243:443/?type=ws&encryption=none&flow=&host=s49079.cdn.ngenix.net&path=%2Fstream%2Flive&security=tls&sni=s49079.cdn.ngenix.net&fp=qq#[LTE]
-vless://ab9a202a-d0b2-07d0-95e5-d6f373a1ab35@5.188.140.217:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
-vless://216e28b3-5950-4f89-916c-62bc50e092de@51.250.98.66:8083?encryption=none&type=tcp&security=reality&fp=chrome&sni=max.ru&pbk=Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw&sid=7dbf7d3233971d5c#[LTE]
-vless://f1a19caa-2917-4556-a045-e60adb002048@89.169.172.4:8443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=rbc.ru&pbk=7zd9mJilgjOrg_ohtw23Vmio-pdnYqeP_r-kiWt87Cg&sid=f4b4a6365558ea2e#[LTE]
-vless://ed2dfd9c-14d9-4a57-9b3c-3decb409f5cd@51.250.3.79:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=ads.x5.ru&pbk=FkmYFobwxLMLEktYXywmjthuEYCZggITsxwPNasTKUg&sid=17f0f0e38f01af5a&spx=%2F#[LTE]
-vless://ea00433c-fef9-4e06-a93e-e6e7a900b864@130.193.41.243:8443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=rbc.ru&pbk=Qddpg8luihgzgx4g4uMJklXzlrMCd8L1igJSWrRUvSc&sid=887c0d72e771a934#[LTE]
-vless://ab9a202a-d0b2-2710-95e5-d6f373a1ab35@89.208.230.42:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
+vless://1e752044-48c1-4208-a394-1403f721735e@185.242.247.12:503?type=tcp&security=reality&flow=xtls-rprx-vision&sni=www.amd.com&pbk=FscaEWx0paNBzL7GWHj4Fll7Xc-KxdhKgTthBAnByWI&fp=random#[LTE]
+vless://ab9a202a-d0b2-0bb8-95e5-d6f373a1ab35@89.208.230.42:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
+vless://1b8650d4-13b9-0bb8-a9f7-670df3afa6b6@5.188.141.239:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#[LTE]
+vless://f1a19caa-2917-4556-a045-e60adb002048@89.169.172.4:8443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=random&sni=rbc.ru&pbk=7zd9mJilgjOrg_ohtw23Vmio-pdnYqeP_r-kiWt87Cg&sid=2715592069f36fe7#[LTE]
+vless://6b9ed73a-f04d-4b5d-a760-2661fa7f6e43@84.201.133.58:8449?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=travel.yandex.ru&pbk=eWc4OGy6tScPuAS_MCVSrFpqJRj1uC9f1gh6YLc332M&spx=%2F#[LTE]
+vless://a6659e5d-5968-4264-888e-dfb84f1e86bd@51.250.75.192:8447?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=max.ru&pbk=T1tALmySOtH_eYNiFY3rRn4p5A6mEBCzdMHnRV7ehRQ&spx=%2F#[LTE]
+vless://6f8d4805-5d2b-4a8b-b8e3-8bd5820c5818@89.208.196.242:1488?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=qq&sni=www.vk.com&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc#[LTE]
