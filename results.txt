@@ -1,16 +1,16 @@
 #profile-title: LLxickVPN
 #support-url: https://t.me/LLxick2
 #profile-update-interval: 1
-#announce: UPD: 17.03.2026 11:42 | обновление каждые 30 мин | тгк @LLxickVPN
+#announce: UPD: 17.03.2026 12:48 | обновление каждые 30 мин | тгк @LLxickVPN
 
-vless://0509acee-63e3-4364-95cc-21c601f059be@kz-general.vps-m.ru:443?security=reality&encryption=none&pbk=6r6uq4tZym5wRhJ5uti-h-UvN6uatQodMcG8rBU79Q4&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=booking.com#[WI-FI]
-vless://39832ad0-eb3c-42a9-83ae-d160f5667df3@uk.trustnew.ru:443?security=reality&type=tcp&flow=xtls-rprx-vision&sni=google.com&pbk=BT01ryaUyDgfdOr3i3zC73x_nZ5Dwb4GqtxUceybkhY#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&type=ws&host=ylnhh.cc.cd&path=%2FTelegram#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2#[WI-FI]
-vless://69b73277-99ed-6b7f-f52b-79b98093e7ae@211.216.185.56:20150?&security=tls&fp=random&alpn=h3&sni=dd4973b2.lfree.cn.mt&type=ws&headerType=none&host=dd4973b2.lfree.cn.mt&path=%2Fsocks5%3D4b2c7676%3A6f0f4cbba5bb%4038.111.30.111%3A26433#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@66.92.20.111:443?type=ws&security=tls&encryption=none&sni=zgtwylnhh.cc.cd&path=Telegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&host=zgtwylnhh.cc.cd#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
+vless://0f780c56-a708-44d9-a1a1-7c210b65e44f@5.181.48.45:44435?security=reality&type=tcp&sni=www.amazon.com&fp=ios&flow=xtls-rprx-vision&sid=19fc123c52e7c30a&pbk=CdCF_1UhM5QocRpNw2I7DasURAf3n80BoFskTI8WKHw#[WI-FI]
+vless://948fac3c-42bf-41a6-a5f9-704d36ff0d8d@161.117.249.114:2025?&security=tls&fp=random&sni=snippet.danfeng.eu.org&type=ws&headerType=none&host=snippet.danfeng.eu.org&path=%2Fdanfeng#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@1.232.206.121:11543?type=ws&security=tls&encryption=none&sni=ylnhh.cc.cd&path=/Telegram🇨🇳&host=ylnhh.cc.cd#[WI-FI]
 vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?security=tls&sni=ylnhh.cc.cd&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%2B%40WangCai2&allowInsecure=0#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@66.92.20.111:443?security=tls&sni=zgtwylnhh.cc.cd&type=ws&host=zgtwylnhh.cc.cd&path=Telegram@WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&type=ws&host=ylnhh.cc.cd&path=%2FTelegram#[WI-FI]
+vless://69b73277-99ed-6b7f-f52b-79b98093e7ae@211.216.185.56:20150?&security=tls&fp=random&alpn=h3&sni=dd4973b2.lfree.cn.mt&type=ws&headerType=none&host=dd4973b2.lfree.cn.mt&path=%2Fsocks5%3D4b2c7676%3A6f0f4cbba5bb%4038.111.30.111%3A26433#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=/Telegram🇨🇳@WangCai2#[WI-FI]
 vless://948fac3c-42bf-41a6-a5f9-704d36ff0d8d@125.227.233.197:2083?&security=tls&fp=random&alpn=http/1.1&sni=snippet.danfeng.casacam.net&type=ws&headerType=none&host=snippet.danfeng.casacam.net&path=%2Fdanfeng#[WI-FI]
-vless://23fc7ec9-9ed2-481f-9fbe-825dab872017@46.19.66.253:443?type=xhttp&security=reality&encryption=none&fp=firefox&pbk=G3bv2wq9Bbhl__rgWikibbpjpXqyvwkkxAfOXeImGG0&sid=99e202329dfffdba&sni=www.api-maps.yandex.ru&path=/api-maps.yandex.ru&host=api-maps.yandex.ru&mode=packet-up&spx=/#[LTE]
-vless://bea7a5db-bb02-4bcd-bece-62832eb1bc94@144.31.129.196:443?type=tcp&security=reality&flow=xtls-rprx-vision&fp=qq&pbk=SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc&sid=6ba85179e30d4fc2&sni=www.vk.com&path=&host=#[LTE]
+vless://c603d9a2-a89a-4b62-ac96-346d3b52620c@cze01.api.aiagentstack.net:10443?mode=stream-one&path=%2Fassets%2Fv2%2Fpkg&security=reality&encryption=none&pbk=mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg&fp=random&spx=%2F&type=xhttp&sni=s3.yandex.net&sid=e499f276e7bd6420#[LTE]
