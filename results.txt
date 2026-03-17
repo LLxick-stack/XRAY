@@ -1,17 +1,16 @@
 #profile-title: LLxickVPN
 #support-url: https://t.me/LLxick2
 #profile-update-interval: 1
-#announce: UPD: 17.03.2026 13:42 | обновление каждые 30 мин | тгк @LLxickVPN
+#announce: UPD: 17.03.2026 14:38 | обновление каждые 30 мин | тгк @LLxickVPN
 
-vless://948fac3c-42bf-41a6-a5f9-704d36ff0d8d@188.209.141.222:29794?&security=tls&fp=random&alpn=http/1.1&sni=snippet.fgfw.ccwu.cc&type=ws&headerType=none&host=snippet.fgfw.ccwu.cc&path=%2Fdanfeng#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2Ftelegram%F0%9F%87%A8%F0%9F%87%B3%40wangcai2#[WI-FI]
-vless://69b73277-99ed-6b7f-f52b-79b98093e7ae@211.216.185.56:20150?security=tls&type=ws&path=%2Fsocks5%3D4b2c7676%3A6f0f4cbba5bb%4038.111.30.111%3A26433&host=dd4973b2.lfree.cn.mt&alpn=h3&sni=dd4973b2.lfree.cn.mt&fp=random#[WI-FI]
-vless://6eeb820e-89ef-4b60-9060-ddcaea0580f0@krp01.jumperservice.com:19001?type=tcp&security=reality&sni=addons.mozilla.org&fp=chrome&flow=xtls-rprx-vision&pbk=UtL7E0Gmxj3X5JdcPAutpTRKo7K2hugkR0vwk2XroUM#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?type=ws&encryption=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&headerType=none&quicSecurity=none&serviceName=&security=tls&fp=chrome&insecure=1&sni=ylnhh.cc.cd#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?type=ws&security=tls&sni=ylnhh.cc.cd&path=/Telegram🇨🇳+@WangCai2&host=ylnhh.cc.cd#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=/Telegram🇨🇳@WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?security=tls&sni=ylnhh.cc.cd&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%2B%40WangCai2&allowInsecure=0#[WI-FI]
-vless://7b5c04b1-3434-4074-86c0-542e8f41b609@kr-1.vpnd.io:54989?encryption=none&flow=xtls-rprx-vision&security=reality&sni=yahoo.com&fp=chrome&pbk=LLES0IAfo_RVa9zzX8oVqe-M_D4iBHYk2jG-2IcClxU&sid=82ac&type=tcp&headerType=none#[WI-FI]
+vless://dc1b85fd-a08e-42d7-ae2b-0a320f3399b7@nl.yt.prod.n7.homes:8444?type=xhttp&security=reality&encryption=none&fp=chrome&pbk=upDCW94g-pSYQrmXvOrTVYlwBUrSKhYFF9QwrqObdVo&sid=3ca620a7ed5f3196&sni=google.com#[WI-FI]
 vless://948fac3c-42bf-41a6-a5f9-704d36ff0d8d@59.27.25.198:10035?&security=tls&fp=random&alpn=http/1.1&sni=snippet.danfeng.casacam.net&type=ws&headerType=none&host=snippet.danfeng.casacam.net&path=%2Fdanfeng#[WI-FI]
+vless://69b73277-99ed-6b7f-f52b-79b98093e7ae@211.216.185.56:20150?security=tls&type=ws&path=%2Fsocks5%3D4b2c7676%3A6f0f4cbba5bb%4038.111.30.111%3A26433&host=dd4973b2.lfree.cn.mt&alpn=h3&sni=dd4973b2.lfree.cn.mt&fp=random#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@94.183.233.213:8443?encryption=none&security=tls&sni=zgtwylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=zgtwylnhh.cc.cd&path=Telegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@94.183.233.213:2053?type=ws&security=tls&encryption=none&sni=zgtwylnhh.cc.cd&path=Telegram🇨🇳&host=zgtwylnhh.cc.cd#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?type=ws&encryption=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&headerType=none&quicSecurity=none&serviceName=&security=tls&fp=chrome&insecure=1&sni=ylnhh.cc.cd#[WI-FI]
+vless://7b5c04b1-3434-4074-86c0-542e8f41b609@kr-1.vpnd.io:54989?type=tcp&security=reality&encryption=none&pbk=LLES0IAfo_RVa9zzX8oVqe-M_D4iBHYk2jG-2IcClxU&fp=random&sni=yahoo.com&sid=82ac&spx=%2F&flow=xtls-rprx-vision#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?type=ws&security=tls&sni=ylnhh.cc.cd&path=/Telegram🇨🇳+@WangCai2&host=ylnhh.cc.cd#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2Ftelegram%F0%9F%87%A8%F0%9F%87%B3%40wangcai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?security=tls&sni=ylnhh.cc.cd&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%2B%40WangCai2&allowInsecure=0#[WI-FI]
 vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@116.93.199.28:21510?fp=chrome&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&security=tls&sni=ylnhh.cc.cd&type=ws#[WI-FI]
-vless://c603d9a2-a89a-4b62-ac96-346d3b52620c@ltu01.api.aiagentstack.net:12443?mode=stream-one&path=%2Fassets%2Fv2%2Fpkg&security=reality&encryption=none&pbk=mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg&fp=random&spx=%2F&type=xhttp&sni=s3.yandex.net&sid=8453e5fd9af927#[LTE]
