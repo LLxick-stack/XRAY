@@ -1,24 +1,18 @@
 #profile-title: LLxickVPN
 #support-url: https://t.me/LLxick2
 #profile-update-interval: 1
-#announce: UPD: 21.03.2026 13:50 | обновление каждые 30 мин | тгк @LLxickVPN
+#announce: UPD: 21.03.2026 14:17 | обновление каждые 30 мин | тгк @LLxickVPN
 
-vless://5f98c4f8-19f4-471d-8ed5-10c0550c0423@150.241.74.1:443/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=tunnel.vk-apps.com&fp=chrome&security=reality&pbk=vMinYb8gKWa5nS3KpDcpr31s1guSnow99f_ffRKK3Dg&sid=12af0dd9&packetEncoding=xudp#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@89.169.33.230:443?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2#[WI-FI]
 vless://48b36b6a-eaa6-4843-9231-0bb8b38b5da5@159.13.36.110:2443?security=reality&type=tcp&sni=www.microsoft.com&fp=chrome&flow=xtls-rprx-vision&sid=ae377cba&pbk=uzRnmrb_UXbDNz5_IeFrC-PJfnuoUIsyaSEy1FgdPho#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@198.204.227.171:2053?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@47.239.4.246:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@8.218.226.31:443?security=tls&type=ws&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2&host=ylnhh.cc.cd&sni=ylnhh.cc.cd#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@44.217.235.114:2053?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@34.92.187.216:443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@68.64.178.42:443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@83.229.122.50:443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@83.229.122.50:443?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2#[WI-FI]
 vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@47.239.4.246:2053?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&type=ws&security=tls&path=/Telegram🇨🇳&host=ylnhh.cc.cd&sni=ylnhh.cc.cd#[LTE]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?security=tls&sni=ylnhh.cc.cd&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%2B%40WangCai2&allowInsecure=0#[LTE]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2#[LTE]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@8.218.189.27:443?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@83.229.122.50:443?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@43.155.186.100:446?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@68.64.178.42:443?encryption=none&security=tls&sni=ylnhh.cc.cd&insecure=0&allowInsecure=0&type=ws&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@47.239.4.246:2053?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@8.218.226.31:443?security=tls&type=ws&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2&host=ylnhh.cc.cd&sni=ylnhh.cc.cd#[WI-FI]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&type=ws&security=tls&path=/Telegram&host=ylnhh.cc.cd&sni=ylnhh.cc.cd#[LTE]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?&security=tls&fp=chrome&sni=ylnhh.cc.cd&type=ws&headerType=none&host=ylnhh.cc.cd&path=%2Ftelegram%F0%9F%87%A8%F0%9F%87%B3%40wangcai2#[LTE]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?type=ws&encryption=none&host=ylnhh.cc.cd&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2&headerType=none&quicSecurity=none&serviceName=&security=tls&fp=chrome&insecure=1&sni=ylnhh.cc.cd#[LTE]
 vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&type=ws&security=tls&path=/Telegram&host=ylnhh.cc.cd&fp=chrome&sni=ylnhh.cc.cd#[LTE]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&type=ws&security=tls&path=/Telegram🇨🇳&host=ylnhh.cc.cd&fp=chrome&sni=ylnhh.cc.cd#[LTE]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&type=ws&security=tls&path=/Telegram@WangCai2&host=ylnhh.cc.cd&sni=ylnhh.cc.cd#[LTE]
-vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&type=ws&security=tls&path=%2FTelegram%2B%40WangCai2&host=ylnhh.cc.cd&fp=chrome&sni=ylnhh.cc.cd#[LTE]
+vless://14b02e2a-8930-4afb-8412-ea4a4954ca5b@59.3.3.161:8443?encryption=none&type=ws&security=tls&path=/Telegram🇨🇳&host=ylnhh.cc.cd&sni=ylnhh.cc.cd#[LTE]
